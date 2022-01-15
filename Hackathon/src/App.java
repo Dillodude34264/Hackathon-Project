@@ -6,5 +6,6 @@ public class App {
         System.out.println("Garrett Dougherty");
         System.out.println("test3");
         System.out.println("Garrett is epic");
+        int numIdeas = 0;
     }
 }
