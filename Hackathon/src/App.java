@@ -8,6 +8,6 @@ public class App {
         System.out.println("Garrett is epic");
         int numIdeas = 0;
 
-        if(numIdeas == 0) System.out.println("We need more ideas!");
+        if (numIdeas == 0) System.out.println("We need more ideas!");
     }
 }
