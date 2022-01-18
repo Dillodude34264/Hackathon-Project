@@ -11,7 +11,7 @@ public class Course {
     public Course(String name, int points, int score) { //Takes the name of the course, the total # of points at the time of creation, and the percent the student has in the course
         courseName = name;
         basePoints = points;
-        studentPoints = points/(int)((double)(score)/100);
+        studentPoints = (int)(points/((double)(score)/100));
     }
     
 }
