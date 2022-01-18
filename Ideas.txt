@@ -7,6 +7,9 @@ Curve Calculator
     Get input - all grades of students as percentages
     Could take input on which curve or show all of them
     Bell Curve:
+        find mean and standard deviation
+        set mean to 75%
+        
 
 
 

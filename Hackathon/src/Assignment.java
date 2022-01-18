@@ -3,5 +3,5 @@ public class Assignment {
     private boolean completed;
     private double score;
     private String category;
-    
+
 }
