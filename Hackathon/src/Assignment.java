@@ -1,8 +1,9 @@
 public class Assignment {
-    private int pointValue;
-    private boolean completed;
-    private int score;
-    private Category category;
+    private String name; //Name of the assignment
+    private int pointValue; //How many points the assignment is worth
+    private boolean completed; //Wether or not it has been completed
+    private int score; //What percent the student got on the assignment
+    private Category category; //What Category it is in
 
     public int getScore(){
         return score;
