@@ -5,5 +5,6 @@ public class Course {
     private int basePoints;
     private int totalPoints;
     private ArrayList<Assignment> courseAssignments = new ArrayList<Assignment>();
+    private ArrayList<Category> courseCategories = new ArrayList<Category>();
     
 }
