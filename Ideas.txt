@@ -1,3 +1,4 @@
 Grade calculator
     Takes a student's current grade in a class(letter or %) and the total point value of the class, then takes an upcoming assignment and its point value and out puts what effect different letter grades on the assignment will have on the overall class grade
     Can choose to put in weighted sections of the class grade, then say what section this assignment is in
+    has file saving so that it can save all of your assignments that you have added.
