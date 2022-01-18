@@ -1,0 +1,2 @@
+Grade calculator
+    Takes a student's current grade in a class(letter or %) and the total point value of the class, then takes an upcoming assignment and its point value and out puts what effect differnet letter grades on the assignment will have on the overall class grade
