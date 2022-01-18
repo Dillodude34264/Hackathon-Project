@@ -1,14 +1,21 @@
-
+import java.util.ArrayList<>();
 public class Grades(){
     private ArrayList<Assignment> gradePercs = new ArrayList<Assignment>();
     private int mean;
     private double stanDev;
 
-    public static findMean(ArrayList<Assignment> gradePercs){
+    public void Grades(ArrayList<Assignment> gP){
+        gradePercs = gP;
+    }
+
+    public static void findMean(ArrayList<Assignment> gradePercs){
         int sum = 0;
-        for(int i = 0; i < gradePercs.size(); i++){
-            
+        int numGrades = gradePercs.size();
+        for(int i = 0; i < numGrades; i++){
+            int grade = gradePercs.get(i).getScore();
+            sum += grade;
         }
+        mean = (int)((sum/numGrades)+0.5);
     }
 
 }
