@@ -7,11 +7,11 @@ Curve Calculator
     Get input - all grades of students as percentages
     Could take input on which curve or show all of them
     Bell Curve:
-    
 
 
 
 
 
 
-write to a file
+
+write to a file so they can store information
