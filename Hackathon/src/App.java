@@ -4,6 +4,7 @@ import java.io.Scanner;
 public class App {
     Scanner getInput = new Scanner(System.in);
     public static void main(String[] args) throws Exception {
+        
         String input = "";
         while(input.equals("")){
             System.out.println("Choose student or teacher mode(s/t): ");

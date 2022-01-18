@@ -1,4 +1,5 @@
 import java.util.ArrayList<>();
+// For teacher mode, gets grades of all the students in the class
 public class Grades(){
     private ArrayList<Assignment> gradePercs = new ArrayList<Assignment>();
     private int mean;
