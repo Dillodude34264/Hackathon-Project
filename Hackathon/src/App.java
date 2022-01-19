@@ -52,7 +52,8 @@ public class App {
                 }
 
                 System.out.println("Enter the # of the desired course or '-1' to cancel ");
-                selectedCourse = Integer.parseInt(getInput.nextLine());
+                selectedCourse = getInput.nextInt();
+                getInput.nextLine();
 
                 if (selectedCourse >= 0 && selectedCourse < courses.size()) {}
             }
@@ -60,15 +61,26 @@ public class App {
             else if (input.equals("c")) { //User is adding a new course to their list of courses
                 String tempName;
                 int tempTotalPoints;
-                int tempStudentPoints;
+                int tempScore;
 
                 System.out.println("Please Enter a Name: ");
                 tempName = getInput.nextLine();
 
-                System.out.println("Enter 'c' to continue to enter grades or 's' to skip and create empty course or hit 'q' to quit: ");
+                System.out.println("Enter 'c' to continue to enter grades or 's' to skip and create empty course or hit 'q' to quit: "); //Let the User choose bewtween creating the new course with just a name or adding preexisting data to it
                 input = getInput.nextLine().toLowerCase();
 
                 if (input.equals("c")) {
+                    System.out.println("How many points is the course worth: ");
+                    tempTotalPoints = getInput.nextInt();
+                    getInput.nextLine();
+
+                    System.out.println("What is your score in this course: ");
+                    tempScore = getInput.nextInt();
+                    getInput.nextLine();
+
+                    System.out.println("Enter 'c' to confirm or 'q' to cancel: ");
+                    input = getInput.nextLine();
+                    if (input.equals("c")) courses.add(new Course(tempName, tempTotalPoints, tempScore));
 
                 } else if (input.equals("s")) {
                     courses.add(new Course(tempName));
