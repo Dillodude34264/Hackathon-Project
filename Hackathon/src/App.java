@@ -33,10 +33,11 @@ public class App {
 
     //Student mode driver
     public static void studentMode(){
-        String input = "";
+        String input;
         int selectedCourse;
         while (true) {
             //Ask what student wants to do
+            input = "";
             if (courses.size() != 0) {
                 System.out.println("Enter 'v' to view an existing course, 'c' to create a new course, or 'q' to quit:");
                 input = getInput.nextLine().toLowerCase();
@@ -44,19 +45,19 @@ public class App {
                 input = "c";
             }
 
-            if (input.equals("v")) { //If student wanted to select a previously created course
+            if (input.equals("v")) { //User is selecting a previously created course
                 System.out.println("Courses: ");
                 for (int i = 0; i < courses.size(); i++) {
                     System.out.println("#" + i + " Name: " + courses.get(i).courseName + " Grade: " + courses.get(i).getScoreString() + "%");
                 }
 
                 System.out.println("Enter the # of the desired course or '-1' to cancel ");
-                selectedCourse = getInput.nextInt();
+                selectedCourse = Integer.parseInt(getInput.nextLine());
 
-                if (selectedCourse >=0 && selectedCourse < courses.size()) {}
+                if (selectedCourse >= 0 && selectedCourse < courses.size()) {}
             }
 
-            else if (input.equals("c")) {
+            else if (input.equals("c")) { //User is adding a new course to their list of courses
                 String tempName;
                 int tempTotalPoints;
                 int tempStudentPoints;
