@@ -4,10 +4,12 @@ import java.util.Scanner;
 ////// Garrett can you make mock-ups or a plan for a potential UI - Michael ////////////
 
 public class App {
+    static ArrayList<Course> courses = new ArrayList<Course>();
+    
     public static void main(String[] args) throws Exception {
         Scanner getInput = new Scanner(System.in);
-
         String input = "";
+
         // Continues to ask user what they want to do until the choose student or teacher mode
         while(input.equals("")){
             // Gets input from user
@@ -29,8 +31,15 @@ public class App {
 
     }
     public static void studentMode(){
+        Scanner getInput = new Scanner(System.in);
+        String input = "";
 
+        if (courses.size() != 0) {
+            System.out.println("Would you like to view an existing course(1) or create a new one(2)?");
+            input = getInput.nextLine();
+        }
     }
+
     public static void teacherMode(){
         System.out.println("Enter the grade percentages of students on the test as integer numbers; enter -1 to end");
         int grade = 0;

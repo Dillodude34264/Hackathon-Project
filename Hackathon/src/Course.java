@@ -17,5 +17,4 @@ public class Course {
     public Course(String name) { //Constructor for when the student is making a new course that they have no points in yet
         courseName = name;
     }
-    
 }
