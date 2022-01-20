@@ -47,11 +47,11 @@ public class App {
             if (input.equals("v")) { //User is selecting a previously created course
                 System.out.println("Courses: ");
                 for (int i = 0; i < courses.size(); i++) {
-                    System.out.println("#" + i + " Name: " + courses.get(i).courseName + " Grade: " + courses.get(i).getScoreString() + "%");
+                    System.out.println("#" + (i+1) + " Name: " + courses.get(i).courseName + " Grade: " + courses.get(i).getScoreString() + "%");
                 }
 
                 System.out.println("Enter the # of the desired course or '-1' to cancel ");
-                selectedCourse = getInput.nextInt();
+                selectedCourse = getInput.nextInt()-1;
                 getInput.nextLine();
 
                 if (selectedCourse >= 0 && selectedCourse < courses.size()) {
