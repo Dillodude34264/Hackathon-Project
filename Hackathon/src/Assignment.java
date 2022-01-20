@@ -5,8 +5,13 @@ public class Assignment {
     private int score; //What percent the student got on the assignment
     private Category category; //What Category it is in
 
+    public Assignment(int s){
+        score = s;
+    }
+
     public int getScore(){
         return score;
     }
+
 
 }
