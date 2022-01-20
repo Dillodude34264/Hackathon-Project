@@ -177,6 +177,12 @@ public class App {
         }
         Grades allGrades = new Grades(gradesList);
         BellCurve thisCurve = new BellCurve(allGrades);
+        thisCurve.curveThem();
+        Grades curved = thisCurve.getCurve();
+
+        for(int i = 0; i < curved.getSize(); i++){
+            System.out.println(curved.getGrade(i).getScore());
+        }
 
     }
 }
