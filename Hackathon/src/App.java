@@ -112,7 +112,7 @@ public class App {
                             }
 
                             counter = 1;
-                            System.out.println("Unfinished Assignments: ");
+                            System.out.println("\nUnfinished Assignments: ");
                             for (Assignment a : tempUnfinished) {
                                 System.out.println("#" + counter + " Name: " + a.getName() + " Point Value: " + a.getPoints() + " Score: " + a.getScore());
                                 counter++;
