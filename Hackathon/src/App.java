@@ -60,7 +60,6 @@ public class App {
                     }
                 }
             }
-
             else if (input.equals("c")) { //User is adding a new course to their list of courses
                 String tempName;
                 int tempTotalPoints;
@@ -104,6 +103,7 @@ public class App {
         ArrayList<Assignment> gradesList = new ArrayList<Assignment>();
         while(true){
             input = getInput.nextInt();
+            getInput.nextLine();
             if(input == -1){
                 break;
             }else{
@@ -112,5 +112,7 @@ public class App {
             }
         }
         Grades allGrades = new Grades(gradesList);
+        BellCurve thisCurve = new BellCurve(allGrades);
+
     }
 }
