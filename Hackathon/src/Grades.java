@@ -6,7 +6,7 @@ public class Grades {
     private double stanDev;
 
     // Constructor to get ArrayList of grades
-    public void Grades(ArrayList<Assignment> gP){
+    public Grades(ArrayList<Assignment> gP){
         gradePercs = gP;
     }
 

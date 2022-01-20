@@ -1,12 +1,11 @@
 import java.util.ArrayList;
 import java.util.Scanner;
 
-////// Garrett can you make mock-ups or a plan for a potential UI - Michael ////////////
 
 public class App {
     static ArrayList<Course> courses = new ArrayList<Course>();
     static Scanner getInput = new Scanner(System.in);
-    
+
     public static void main(String[] args) throws Exception {
         String input = "";
 
@@ -90,7 +89,7 @@ public class App {
                     courses.add(new Course(tempName));
                 }
             }
-            
+
             else { //If the User entered anything other than 'c' or 'v' it quits
                 break;
             }
@@ -99,8 +98,19 @@ public class App {
 
     //Teacher mode driver
     public static void teacherMode(){
-        System.out.println("Enter the grade percentages of students on the test as integer numbers; enter -1 to quit");
-        int grade = 0;
-        //while()
+        System.out.println("Enter the grade percentages of students on the test as integer numbers, click enter after each one; enter -1 to quit");
+        int input = 0;
+        Assignment grade;
+        ArrayList<Assignment> gradesList = new ArrayList<Assignment>();
+        while(true){
+            input = getInput.nextInt();
+            if(input == -1){
+                break;
+            }else{
+                grade = new Assignment(input);
+                gradesList.add(grade);
+            }
+        }
+        Grades allGrades = new Grades(gradesList);
     }
 }

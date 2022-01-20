@@ -4,7 +4,7 @@ public class Course {
     public String courseName; //Name of the course
     public int basePoints; //# of points at the time the Course was created
     public int totalPoints; //Total # of points calculated to include added Assignments
-    public int studentPoints; //Total # of points the student has calculated to include added 
+    public int studentPoints; //Total # of points the student has calculated to include added
     public ArrayList<Assignment> courseAssignments = new ArrayList<Assignment>();
     public ArrayList<Category> courseCategories = new ArrayList<Category>();
 

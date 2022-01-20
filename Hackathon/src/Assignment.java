@@ -18,8 +18,13 @@ public class Assignment {
         completed = true;
     }
 
+    public Assignment(int s) { //For Teacher Use Only
+        score = s;
+    }
+
     public int getScore(){
         return score;
     }
+
 
 }
