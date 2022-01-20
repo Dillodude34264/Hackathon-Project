@@ -56,7 +56,7 @@ public class App {
 
                 if (selectedCourse >= 0 && selectedCourse < courses.size()) {
                     while (true) {
-                        System.out.println("Enter 'a' to add an assignment, 't' to test an assignment, or 'q' to quit: ");
+                        System.out.println("Enter 'a' to add an assignment, 't' to test an assignment, 'l' to list assignments, or 'q' to quit: ");
                         input = getInput.nextLine().toLowerCase();
 
                         if (input.equals("t")) {
@@ -95,6 +95,27 @@ public class App {
                                 courses.get(selectedCourse).addAssingment(n, points, s);
                             } else {
                                 courses.get(selectedCourse).addAssingment(n, points, 0);
+                            }
+
+                        } else if (input.equals("l")) {
+                            ArrayList<Assignment> tempUnfinished = new ArrayList<Assignment>();
+                            int counter = 1;
+
+                            System.out.println("Completed Assignments: ");
+                            for (Assignment a : courses.get(selectedCourse).getAssignments()) {
+                                if (a.getCompleted()) {
+                                    System.out.println("#" + counter + " Name: " + a.getName() + " Point Value: " + a.getPoints() + " Score: " + a.getScore());
+                                    counter++;
+                                } else {
+                                    tempUnfinished.add(a);
+                                }
+                            }
+
+                            counter = 1;
+                            System.out.println("Unfinished Assignments: ");
+                            for (Assignment a : tempUnfinished) {
+                                System.out.println("#" + counter + " Name: " + a.getName() + " Point Value: " + a.getPoints() + " Score: " + a.getScore());
+                                counter++;
                             }
 
                         } else {

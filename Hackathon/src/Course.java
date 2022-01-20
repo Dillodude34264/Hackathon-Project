@@ -52,6 +52,10 @@ public class Course {
         }
     }
 
+    public ArrayList<Assignment> getAssignments() {
+        return courseAssignments;
+    } 
+
     public void testAssignment(String n, int points) {
         updatePoints();
         Assignment test = new Assignment(n, points);
