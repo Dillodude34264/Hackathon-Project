@@ -6,8 +6,19 @@ public class App {
     static ArrayList<Course> courses = new ArrayList<Course>();
     static Scanner getInput = new Scanner(System.in);
 
+
     public static void main(String[] args) throws Exception {
         String input = "";
+
+        //Add a test course for testing purposes
+        courses.add(new Course("APCSA", 50, 100));
+        //Preload test course with test assignments
+        courses.get(0).addAssingment("Project 1", 100, 95);
+        courses.get(0).addAssingment("Assignment 1", 10, 80);
+        courses.get(0).addAssingment("A2", 10, 100);
+        courses.get(0).addAssingment("A3", 20, 61);
+        courses.get(0).addAssingment("A4", 15, 92);
+        courses.get(0).addAssingment("Project 2", 100, 0);
 
         // Continues to ask user what they want to do until the choose student or teacher mode
         while(true){
