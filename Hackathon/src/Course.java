@@ -20,6 +20,14 @@ public class Course {
         studentPoints = 0;
     }
 
+    public void addAssingment(String n, int points, int s) {
+        if (s == 0) {
+            courseAssignments.add(new Assignment(n, points));
+        } else {
+            courseAssignments.add(new Assignment(n, points, s));
+        }
+    }
+
     public String getScoreString() {
         if (basePoints + totalPoints != 0) {
             return "" + (studentPoints/(basePoints + totalPoints)*100);

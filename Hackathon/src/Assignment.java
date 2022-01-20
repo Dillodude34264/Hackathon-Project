@@ -5,6 +5,19 @@ public class Assignment {
     private int score; //What percent the student got on the assignment
     private Category category; //What Category it is in
 
+    public Assignment(String n, int points) {
+        name = n;
+        pointValue = points;
+        completed = false;
+    }
+    
+    public Assignment(String n, int points, int s) {
+        name = n;
+        pointValue = points;
+        score =s;
+        completed = true;
+    }
+
     public int getScore(){
         return score;
     }

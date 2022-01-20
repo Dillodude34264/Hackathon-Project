@@ -55,7 +55,11 @@ public class App {
                 selectedCourse = getInput.nextInt();
                 getInput.nextLine();
 
-                if (selectedCourse >= 0 && selectedCourse < courses.size()) {}
+                if (selectedCourse >= 0 && selectedCourse < courses.size()) {
+                    while (true) {
+                        System.out.println("Enter 'a' to add an assignment, or 'q' to quit: ");
+                    }
+                }
             }
 
             else if (input.equals("c")) { //User is adding a new course to their list of courses
