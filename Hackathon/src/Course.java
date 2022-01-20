@@ -60,9 +60,9 @@ public class Course {
         updatePoints();
         Assignment test = new Assignment(n, points);
         System.out.println("If you get an A on " + test.getName() + " then your overall grade in " + courseName + " will be " + (int)((test.getPoints()*.95+studentPoints)/(totalPoints+test.getPoints())*100) + "%");
-        System.out.println("If you get a B on " + test.getName() + " then your overall grade in " + courseName + " will be " + (int)((test.getPoints()*.85+studentPoints)/(totalPoints+test.getPoints())*100) + "%");
-        System.out.println("If you get a C on " + test.getName() + " then your overall grade in " + courseName + " will be " + (int)((test.getPoints()*.75+studentPoints)/(totalPoints+test.getPoints())*100) + "%");
-        System.out.println("If you get a D on " + test.getName() + " then your overall grade in " + courseName + " will be " + (int)((test.getPoints()*.65+studentPoints)/(totalPoints+test.getPoints())*100) + "%");
+        System.out.println("If you get a  B on " + test.getName() + " then your overall grade in " + courseName + " will be " + (int)((test.getPoints()*.85+studentPoints)/(totalPoints+test.getPoints())*100) + "%");
+        System.out.println("If you get a  C on " + test.getName() + " then your overall grade in " + courseName + " will be " + (int)((test.getPoints()*.75+studentPoints)/(totalPoints+test.getPoints())*100) + "%");
+        System.out.println("If you get a  D on " + test.getName() + " then your overall grade in " + courseName + " will be " + (int)((test.getPoints()*.65+studentPoints)/(totalPoints+test.getPoints())*100) + "%");
         System.out.println("If you get an F on " + test.getName() + " then your overall grade in " + courseName + " will be " + (int)((test.getPoints()*.50+studentPoints)/(totalPoints+test.getPoints())*100) + "%");
     }
 }
