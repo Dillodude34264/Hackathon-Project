@@ -56,7 +56,50 @@ public class App {
 
                 if (selectedCourse >= 0 && selectedCourse < courses.size()) {
                     while (true) {
-                        System.out.println("Enter 'a' to add an assignment, or 'q' to quit: ");
+                        System.out.println("Enter 'a' to add an assignment, 't' to test an assignment, or 'q' to quit: ");
+                        input = getInput.nextLine().toLowerCase();
+
+                        if (input.equals("t")) {
+                            String n;
+                            int points;
+
+                            System.out.println("What is the name of the Assignment: ");
+                            n = getInput.nextLine();
+
+                            System.out.println("How many points is the assignment worth: ");
+                            points = getInput.nextInt();
+                            getInput.nextLine();
+
+                            courses.get(selectedCourse).testAssignment(n, points);
+
+                        } else if (input.equals("a")) {
+                            String n;
+                            int points;
+                            int s;
+
+                            System.out.println("What is the name of the Assignment: ");
+                            n = getInput.nextLine();
+
+                            System.out.println("How many points is the assignment worth: ");
+                            points = getInput.nextInt();
+                            getInput.nextLine();
+
+                            System.out.println("Is the assignment turned in and Grade (y/n): ");
+                            input = getInput.nextLine().toLowerCase();
+
+                            if (input.equals("y")) {
+                                System.out.println("What percent grade did you get: ");
+                                s = getInput.nextInt();
+                                getInput.nextLine();
+
+                                courses.get(selectedCourse).addAssingment(n, points, s);
+                            } else {
+                                courses.get(selectedCourse).addAssingment(n, points, 0);
+                            }
+
+                        } else {
+                            break;
+                        }
                     }
                 }
             }

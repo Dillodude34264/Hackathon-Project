@@ -18,6 +18,13 @@ public class Assignment {
         completed = true;
     }
 
+    public Assignment(String n, int points, int s, boolean c) {
+        name = n;
+        pointValue = points;
+        score =s;
+        completed = c;
+    }
+
     public Assignment(int s) { //For Teacher Use Only
         score = s;
     }
@@ -26,5 +33,15 @@ public class Assignment {
         return score;
     }
 
+    public int getPoints() {
+        return pointValue;
+    }
 
+    public boolean getCompleted() {
+        return completed;
+    }
+
+    public String getName() {
+        return name;
+    }
 }
