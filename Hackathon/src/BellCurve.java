@@ -6,21 +6,21 @@ public class BellCurve{
   private Grades curvedGrades;
   private ArrayList<Assignment> curvAssns = new ArrayList<Assignment>();
   private int numGrades;
-  private int aveGrade;
+  private int newAveGrade;
 
-  public BellCurve(Grades g){
+  public BellCurve(Grades g, int nAG){
     origGrades = g;
     mean = origGrades.getMean();
     stanDev = origGrades.getStanDev();
     numGrades = origGrades.getSize();
-    aveGrade = 75;
+    newAveGrade = nAG;
   }
 
   public void curveThem(){
       for(int i = 0; i < numGrades; i++){
           Assignment tempGrade = origGrades.getGrade(i);
           int diff = tempGrade.getScore() - mean;
-          Assignment curvedAssn = new Assignment((int)((stanDev*0.1*diff)+0.5) + tempGrade.getScore());
+          Assignment curvedAssn = new Assignment((int)((diff/(stanDev*0.1))+0.5) + newAveGrade);
           curvAssns.add(curvedAssn);
       }
       curvedGrades = new Grades(curvAssns);

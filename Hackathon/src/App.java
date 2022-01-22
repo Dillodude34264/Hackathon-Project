@@ -56,89 +56,86 @@ public class App {
             }
 
             if (input.equals("v")) { //User is selecting a previously created course
-                while (true) {
-                    System.out.println("Courses: ");
-                    for (int i = 0; i < courses.size(); i++) {
-                        System.out.println("#" + (i+1) + " Name: " + courses.get(i).courseName + " Grade: " + courses.get(i).getScoreString() + "%");
-                    }
+                System.out.println("Courses: ");
+                for (int i = 0; i < courses.size(); i++) {
+                    System.out.println("#" + (i+1) + " Name: " + courses.get(i).courseName + " Grade: " + courses.get(i).getScoreString() + "%");
+                }
 
-                    System.out.println("Enter the # of the desired course or '-1' to cancel ");
-                    selectedCourse = getInput.nextInt()-1;
-                    getInput.nextLine();
+                System.out.println("Enter the # of the desired course or '-1' to cancel ");
+                selectedCourse = getInput.nextInt()-1;
+                getInput.nextLine();
 
-                    if (selectedCourse >= 0 && selectedCourse < courses.size()) {
-                        while (true) {
-                            System.out.println("Enter 'a' to add an assignment, 't' to test an assignment, 'l' to list assignments, or 'q' to quit: ");
+                if (selectedCourse >= 0 && selectedCourse < courses.size()) {
+                    while (true) {
+                        System.out.println("Enter 'a' to add an assignment, 't' to test an assignment, 'l' to list assignments, or 'q' to quit: ");
+                        input = getInput.nextLine().toLowerCase();
+
+                        if (input.equals("t")) {
+                            String n;
+                            int points;
+
+                            System.out.println("What is the name of the Assignment: ");
+                            n = getInput.nextLine();
+
+                            System.out.println("How many points is the assignment worth: ");
+                            points = getInput.nextInt();
+                            getInput.nextLine();
+
+                            courses.get(selectedCourse).testAssignment(n, points);
+
+                        } else if (input.equals("a")) {
+                            String n;
+                            int points;
+                            int s;
+
+                            System.out.println("What is the name of the Assignment: ");
+                            n = getInput.nextLine();
+
+                            System.out.println("How many points is the assignment worth: ");
+                            points = getInput.nextInt();
+                            getInput.nextLine();
+
+                            System.out.println("Is the assignment turned in and Grade (y/n): ");
                             input = getInput.nextLine().toLowerCase();
 
-                            if (input.equals("t")) {
-                                String n;
-                                int points;
-
-                                System.out.println("What is the name of the Assignment: ");
-                                n = getInput.nextLine();
-
-                                System.out.println("How many points is the assignment worth: ");
-                                points = getInput.nextInt();
+                            if (input.equals("y")) {
+                                System.out.println("What percent grade did you get: ");
+                                s = getInput.nextInt();
                                 getInput.nextLine();
 
-                                courses.get(selectedCourse).testAssignment(n, points);
+                                courses.get(selectedCourse).addAssingment(n, points, s);
+                            } else {
+                                courses.get(selectedCourse).addAssingment(n, points, 0);
+                            }
 
-                            } else if (input.equals("a")) {
-                                String n;
-                                int points;
-                                int s;
+                        } else if (input.equals("l")) {
+                            ArrayList<Assignment> tempUnfinished = new ArrayList<Assignment>();
+                            int counter = 1;
 
-                                System.out.println("What is the name of the Assignment: ");
-                                n = getInput.nextLine();
-
-                                System.out.println("How many points is the assignment worth: ");
-                                points = getInput.nextInt();
-                                getInput.nextLine();
-
-                                System.out.println("Is the assignment turned in and Grade (y/n): ");
-                                input = getInput.nextLine().toLowerCase();
-
-                                if (input.equals("y")) {
-                                    System.out.println("What percent grade did you get: ");
-                                    s = getInput.nextInt();
-                                    getInput.nextLine();
-
-                                    courses.get(selectedCourse).addAssingment(n, points, s);
-                                } else {
-                                    courses.get(selectedCourse).addAssingment(n, points, 0);
-                                }
-
-                            } else if (input.equals("l")) {
-                                ArrayList<Assignment> tempUnfinished = new ArrayList<Assignment>();
-                                int counter = 1;
-
-                                System.out.println("Completed Assignments: ");
-                                for (Assignment a : courses.get(selectedCourse).getAssignments()) {
-                                    if (a.getCompleted()) {
-                                        System.out.println("#" + counter + " Name: " + a.getName() + " Point Value: " + a.getPoints() + " Score: " + a.getScore());
-                                        counter++;
-                                    } else {
-                                        tempUnfinished.add(a);
-                                    }
-                                }
-
-                                counter = 1;
-                                System.out.println("\nUnfinished Assignments: ");
-                                for (Assignment a : tempUnfinished) {
+                            System.out.println("Completed Assignments: ");
+                            for (Assignment a : courses.get(selectedCourse).getAssignments()) {
+                                if (a.getCompleted()) {
                                     System.out.println("#" + counter + " Name: " + a.getName() + " Point Value: " + a.getPoints() + " Score: " + a.getScore());
                                     counter++;
+                                } else {
+                                    tempUnfinished.add(a);
                                 }
-
-                            } else {
-                                break;
                             }
+
+                            counter = 1;
+                            System.out.println("\nUnfinished Assignments: ");
+                            for (Assignment a : tempUnfinished) {
+                                System.out.println("#" + counter + " Name: " + a.getName() + " Point Value: " + a.getPoints() + " Score: " + a.getScore());
+                                counter++;
+                            }
+
+                        } else {
+                            break;
                         }
-                    } else {
-                        break;
                     }
                 }
-            } else if (input.equals("c")) { //User is adding a new course to their list of courses
+            }
+            else if (input.equals("c")) { //User is adding a new course to their list of courses
                 String tempName;
                 int tempTotalPoints;
                 int tempScore;
@@ -175,28 +172,73 @@ public class App {
 
     //Teacher mode driver
     public static void teacherMode(){
-        System.out.println("Enter the grade percentages of students on the test as integer numbers, click enter after each one; enter -1 to quit");
-        int input = 0;
-        Assignment grade;
-        ArrayList<Assignment> gradesList = new ArrayList<Assignment>();
-        while(true){
-            input = getInput.nextInt();
-            getInput.nextLine();
-            if(input == -1){
-                break;
-            }else{
-                grade = new Assignment(input);
-                gradesList.add(grade);
-            }
-        }
-        Grades allGrades = new Grades(gradesList);
-        BellCurve thisCurve = new BellCurve(allGrades);
-        thisCurve.curveThem();
-        Grades curved = thisCurve.getCurve();
+      int input = 0;
+      Assignment grade;
+      int newAveGrade = 75;
+      ArrayList<Assignment> gradesList = new ArrayList<Assignment>();
+      System.out.println("Enter the grade percentages of students on the test as integer numbers, click enter after each one; enter -1 when you're done");
 
-        for(int i = 0; i < curved.getSize(); i++){
-            System.out.println(curved.getGrade(i).getScore());
-        }
+      // Continues to ask user for input until the want to stop (with input -1)
+      while(true){
+          try{
+            input = getInput.nextInt();
+        }catch(Exception e){  // Catches error of non-int input
+            input = -5;
+          }
+          getInput.nextLine();
+          if(input == -1){
+              break;
+          }else if(input >= 0 && input <= 100){ // Adds inputted number to ArrayList
+              grade = new Assignment(input);
+              gradesList.add(grade);
+          }else{
+            System.out.println("Invalid Input. Please Try Again."); // Error message if invalid input
+          }
+      }
+
+      // Gets new mean that user wants to get grades to
+      System.out.println("\nWhat do you want the mean grade to become (range 1-99, default is 75): ");
+      try{
+        input = getInput.nextInt();
+      }catch(Exception e){} // Catches error of non-int input
+      getInput.nextLine();
+      if(input > 0 & input < 100){  // Sets input to var for new mean
+        newAveGrade = input;
+      }else{    // Invalid input message
+        System.out.println("Invalid Input. Setting to default of " + newAveGrade + ".");
+      }
+
+      Grades allGrades = new Grades(gradesList);
+
+      // Makes bell curve var and gets curved grades
+      BellCurve bellCurve = new BellCurve(allGrades, newAveGrade);
+      bellCurve.curveThem();
+      Grades bellCurvedGrades = bellCurve.getCurve();
+
+      // Makes root curve var and gets curved grades
+      RootCurve rootCurve = new RootCurve(allGrades, newAveGrade);
+      rootCurve.curveThem();
+      Grades rootCurvedGrades = rootCurve.getCurve();
+
+      // Prints data - original compared to both curves
+      // Three colums for original, bell, root
+      // Row for each "person"
+      System.out.println("\nGrades were curved so the mean is now " + newAveGrade);
+      System.out.println("Original\tBell Curve\tRoot Curve");
+      for(int i = 0; i < allGrades.getSize(); i++){
+        int initGrade = allGrades.getGrade(i).getScore();
+        int bellGrade = bellCurvedGrades.getGrade(i).getScore();
+        int rootGrade = rootCurvedGrades.getGrade(i).getScore();
+        System.out.println(initGrade + "\t\t\t" + bellGrade + "\t\t\t" + rootGrade);
+      }
+      System.out.println();
+
+
+
+
+
+
+
 
     }
 }

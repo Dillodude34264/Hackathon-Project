@@ -22,7 +22,7 @@ public class Grades {
             int grade = gradePercs.get(i).getScore();
             sum += grade;
         }
-        mean = (int)((sum/numGrades)+0.5);  // Divides sum by number of grades
+        mean = (int)((sum*1.0/numGrades)+0.5);  // Divides sum by number of grades
     }
 
     public void findStanDev(){
